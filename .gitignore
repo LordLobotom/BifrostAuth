@@ -187,6 +187,7 @@ lib64/
 parts/
 sdist/
 var/
+wheels/
 *.egg-info/
 .installed.cfg
 *.egg
@@ -198,9 +199,11 @@ ENV/
 # Databáze
 *.db
 *.sqlite3
+*.sqlite
 
 # Logy
 *.log
+logs/
 
 # Prostředí
 .env
@@ -222,11 +225,22 @@ node_modules/
 npm-debug.log
 yarn-debug.log
 yarn-error.log
+.pnpm-debug.log
 
 # Build
 frontend/dist/
 frontend/build/
+/out/
 
 # Misc
 .DS_Store
 Thumbs.db
+
+# Lokální konfigurace
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Specifické pro tento projekt
+cursorrules.txt
