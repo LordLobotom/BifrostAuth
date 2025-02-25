@@ -1,196 +1,186 @@
 # BifrostAuth
-BifrostAuth is an authentication and user management system
 
-BifrostAuth
-Authentication and user management system | Autentizační a uživatelský správní systém
+---
 
-English | Česky
+*Authentication and user management system | Autentizační a uživatelský správní systém*
+
+[English](#english) | [Česky](#czech)
+
+---
 
 <a name="english"></a>
 
-🌉 Description
+## 🌉 Description
+
 BifrostAuth is an authentication and user management system providing secure login functionality for information systems. It features user registration, login/logout, role-based permissions, and user profile management. The interface demonstrates these core authentication features through a clean, professional dashboard designed for administrators to manage users and system access.
 
-🛠️ Technologies
-Backend
-Language: Python
+### 🛠️ Technologies
 
-Framework: FastAPI
+#### Backend
 
-Database: PostgreSQL
+- **Language**: Python
+- **Framework**: FastAPI
+- **Database**: PostgreSQL
+- **Authentication**: JWT, OAuth2, bcrypt
+- **Security**: Rate limiting
 
-Authentication: JWT, OAuth2, bcrypt
 
-Security: Rate limiting
+#### Frontend
 
-Frontend
-Language: TypeScript
+- **Language**: TypeScript
+- **Framework**: React
+- **UI Libraries**: Tailwind CSS, Shadcn UI
+- **Build Tool**: Vite
 
-Framework: React
 
-UI Libraries: Tailwind CSS, Shadcn UI
+### ✨ Key Features
 
-Build Tool: Vite
+- **User Authentication**
+    - Registration, Login with JWT
+    - OAuth Google Login
+    - Email Verification
+    - Password Reset
+- **Rate Limiting** for brute force attack prevention
+- **Role-Based Access Control (RBAC)**
+- **Optional Two-Factor Authentication (2FA)**
 
-✨ Key Features
-User Authentication
 
-Registration, Login with JWT
+### 🚀 Milestones
 
-OAuth Google Login
+1. Basic Authentication API (Registration, Login, JWT)
+2. Email Verification \& Password Reset
+3. OAuth Integration (Google Login)
+4. Rate Limiting \& Role-Based Access
+5. Optional 2FA Implementation
 
-Email Verification
+### 🔧 Installation \& Running
 
-Password Reset
-
-Rate Limiting for brute force attack prevention
-
-Role-Based Access Control (RBAC)
-
-Optional Two-Factor Authentication (2FA)
-
-🚀 Milestones
-Basic Authentication API (Registration, Login, JWT)
-
-Email Verification & Password Reset
-
-OAuth Integration (Google Login)
-
-Rate Limiting & Role-Based Access
-
-Optional 2FA Implementation
-
-🔧 Installation & Running
-bash
+```bash
 # Clone repository
 git clone https://github.com/LordLobotom/BifrostAuth.git
 cd BifrostAuth
 
 # Run with Docker Compose
 docker compose up -d
-👨‍💻 Development Guidelines
-Backend
-Use async def for all API endpoints
+```
 
-Follow PEP8 coding standards
 
-Separate concerns (use routers, schemas, models, services directories)
+### 👨‍💻 Development Guidelines
 
-Use SQLAlchemy 2.0 for ORM features
+#### Backend
 
-Implement proper error handling & logging
+- Use `async def` for all API endpoints
+- Follow PEP8 coding standards
+- Separate concerns (use routers, schemas, models, services directories)
+- Use SQLAlchemy 2.0 for ORM features
+- Implement proper error handling \& logging
 
-Frontend
-Use TypeScript for type safety
 
-Use functional components and hooks efficiently
+#### Frontend
 
-Follow mobile-first responsive design
+- Use TypeScript for type safety
+- Use functional components and hooks efficiently
+- Follow mobile-first responsive design
+- Implement lazy loading \& code splitting for performance
 
-Implement lazy loading & code splitting for performance
 
-🧪 Testing & Deployment
-Unit tests for both frontend and backend
+### 🧪 Testing \& Deployment
 
-Docker Compose for container orchestration
+- Unit tests for both frontend and backend
+- Docker Compose for container orchestration
+- CI/CD Integration for automated testing and deployment
+- CORS Configuration for secure API access
 
-CI/CD Integration for automated testing and deployment
-
-CORS Configuration for secure API access
+---
 
 <a name="czech"></a>
 
-🌉 Popis
+## 🌉 Popis
+
 BifrostAuth je autentizační a uživatelský správní systém poskytující bezpečnou přihlašovací funkcionalitu pro informační systémy. Nabízí registraci uživatelů, přihlášení/odhlášení, správu rolí a uživatelských profilů. Rozhraní demonstruje tyto základní autentizační funkce prostřednictvím čistého, profesionálního dashboardu navrženého pro administrátory ke správě uživatelů a přístupu do systému.
 
-🛠️ Technologie
-Backend
-Jazyk: Python
+### 🛠️ Technologie
 
-Framework: FastAPI
+#### Backend
 
-Databáze: PostgreSQL
+- **Jazyk**: Python
+- **Framework**: FastAPI
+- **Databáze**: PostgreSQL
+- **Autentizace**: JWT, OAuth2, bcrypt
+- **Bezpečnost**: Rate limiting
 
-Autentizace: JWT, OAuth2, bcrypt
 
-Bezpečnost: Rate limiting
+#### Frontend
 
-Frontend
-Jazyk: TypeScript
+- **Jazyk**: TypeScript
+- **Framework**: React
+- **UI knihovny**: Tailwind CSS, Shadcn UI
+- **Build nástroj**: Vite
 
-Framework: React
 
-UI knihovny: Tailwind CSS, Shadcn UI
+### ✨ Klíčové funkce
 
-Build nástroj: Vite
+- **Autentizace uživatelů**
+    - Registrace, přihlášení s JWT
+    - OAuth Google přihlášení
+    - Ověření e-mailu
+    - Reset hesla
+- **Rate Limiting** pro prevenci útoků hrubou silou
+- **Role-Based Access Control (RBAC)**
+- **Volitelná dvoufaktorová autentizace (2FA)**
 
-✨ Klíčové funkce
-Autentizace uživatelů
 
-Registrace, přihlášení s JWT
+### 🚀 Milníky
 
-OAuth Google přihlášení
+1. Základní autentizační API (registrace, přihlášení, JWT)
+2. Ověření e-mailu a reset hesla
+3. OAuth integrace (Google přihlášení)
+4. Rate Limiting a přístup založený na rolích
+5. Implementace volitelné 2FA
 
-Ověření e-mailu
+### 🔧 Instalace a spuštění
 
-Reset hesla
-
-Rate Limiting pro prevenci útoků hrubou silou
-
-Role-Based Access Control (RBAC)
-
-Volitelná dvoufaktorová autentizace (2FA)
-
-🚀 Milníky
-Základní autentizační API (registrace, přihlášení, JWT)
-
-Ověření e-mailu a reset hesla
-
-OAuth integrace (Google přihlášení)
-
-Rate Limiting a přístup založený na rolích
-
-Implementace volitelné 2FA
-
-🔧 Instalace a spuštění
-bash
+```bash
 # Klonování repozitáře
 git clone https://github.com/LordLobotom/BifrostAuth.git
 cd BifrostAuth
 
 # Spuštění pomocí Docker Compose
 docker compose up -d
-👨‍💻 Vývojové pokyny
-Backend
-Používejte async def pro všechny API endpointy
+```
 
-Dodržujte standardy kódování PEP8
 
-Oddělujte zodpovědnosti (použijte adresáře routers, schemas, models, services)
+### 👨‍💻 Vývojové pokyny
 
-Používejte SQLAlchemy 2.0 pro ORM funkce
+#### Backend
 
-Implementujte správné zpracování chyb a logování
+- Používejte `async def` pro všechny API endpointy
+- Dodržujte standardy kódování PEP8
+- Oddělujte zodpovědnosti (použijte adresáře routers, schemas, models, services)
+- Používejte SQLAlchemy 2.0 pro ORM funkce
+- Implementujte správné zpracování chyb a logování
 
-Frontend
-Používejte TypeScript pro typovou bezpečnost
 
-Používejte funkční komponenty a hooks efektivně
+#### Frontend
 
-Dodržujte responzivní design s přístupem mobile-first
+- Používejte TypeScript pro typovou bezpečnost
+- Používejte funkční komponenty a hooks efektivně
+- Dodržujte responzivní design s přístupem mobile-first
+- Implementujte lazy loading a code splitting pro výkon
 
-Implementujte lazy loading a code splitting pro výkon
 
-🧪 Testování a nasazení
-Jednotkové testy pro frontend i backend
+### 🧪 Testování a nasazení
 
-Docker Compose pro orchestraci kontejnerů
+- Jednotkové testy pro frontend i backend
+- Docker Compose pro orchestraci kontejnerů
+- CI/CD integrace pro automatizované testování a nasazení
+- Konfigurace CORS pro bezpečný přístup k API
 
-CI/CD integrace pro automatizované testování a nasazení
 
-Konfigurace CORS pro bezpečný přístup k API
+## 📄 License | Licence
 
-📄 License | Licence
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Tento projekt je licencován pod MIT licencí - podrobnosti naleznete v souboru LICENSE.
+Tento projekt je licencován pod MIT licencí - podrobnosti naleznete v souboru [LICENSE](LICENSE).
+
+<div style="text-align: center">⁂</div>
