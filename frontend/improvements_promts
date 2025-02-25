@@ -1,0 +1,13 @@
+Potřebuju místo dashboard/page.tsx nějakou stránku s informacemi jakože news, systémové zprávy nebo něco. Dashboard ovšem vytvoř nově ten je také potřeba User management.
+
+Chybí Register z login
+Chybí zapomenuté heslo z login
+
+*****Toto asi přes cursor?*****
+Ujistěte se, že ve složce frontend budou všechny potřebné konfigurační soubory jako:
+vite.config.ts
+tsconfig.json
+tailwind.config.js
+postcss.config.js
+Dockerfile a Dockerfile.dev
+
