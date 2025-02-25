@@ -169,3 +169,64 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtuální prostředí
+venv/
+ENV/
+
+# Databáze
+*.db
+*.sqlite3
+
+# Logy
+*.log
+
+# Prostředí
+.env
+backend/.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Alembic
+backend/alembic/versions/*.py
+!backend/alembic/versions/__init__.py
+!backend/alembic/versions/initial_migration.py
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Build
+frontend/dist/
+frontend/build/
+
+# Misc
+.DS_Store
+Thumbs.db

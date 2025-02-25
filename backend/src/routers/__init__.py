@@ -1,0 +1,1 @@
+# Prázdný soubor pro označení adresáře jako Python package 
