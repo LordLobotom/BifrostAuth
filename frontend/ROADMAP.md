@@ -9,7 +9,7 @@ Tento dokument obsahuje plán dalšího rozvoje frontend aplikace s rozdělením
 - [x] Konfigurace ESLint a Prettier
 - [x] Nastavení Tailwind CSS
 - [x] Integrace Shadcn UI komponent
-- [ ] Vytvoření základní struktury adresářů (components, pages, hooks, utils, types)
+- [x] Vytvoření základní struktury adresářů (components, pages, hooks, utils, types)
 - [ ] Nastavení React Router pro navigaci
 
 ### Autentizace a autorizace
