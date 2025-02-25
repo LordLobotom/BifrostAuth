@@ -1,0 +1,8 @@
+Name of the app:
+BifrostAuth
+
+Description of the app:
+BifrostAuth is an authentication and user management system that provides secure login functionality for information systems. It features user registration, login/logout, role-based permissions, and user profile management. The interface demonstrates these core authentication features through a clean, professional dashboard designed for administrators to manage users and system access.
+
+Context of the app:
+We are building a new application for managing user access to enterprise systems. Our clients need a simple yet secure solution for managing their employees' identities and permissions. BifrostAuth will provide them with a centralized system where administrators can easily add new users, modify their roles, and monitor login activity. This screen represents the main interface that administrators will see after logging in - a clear dashboard with a user table and management options. We need a clean, professional design that will be intuitive even for less technically skilled administrators.

@@ -1,0 +1,90 @@
+Project Overview
+
+Summary
+This project is an authentication API built with FastAPI, containerized with Docker, using PostgreSQL for user management and JWT for authentication. The backend follows RESTful API design principles and utilizes FastAPI’s dependency injection system.
+
+Project Structure
+
+Backend (Python/FastAPI)
+- Language: Python
+- Framework: FastAPI
+- Database: PostgreSQL
+- Directory Structure:
+  - backend/src/: Main source code
+  - backend/tests/: Test cases
+  - document-processor/: Document processing utilities
+  - Environment Configuration:
+    - .env / .env.example: Environment variables
+  - Database Configuration:
+    - alembic.ini (if using migrations)
+    - ddialog.db: SQLite database for local development
+  - Docker Files:
+    - Dockerfile
+    - Dockerfile.dev
+
+Frontend (TypeScript/React)
+- Language: TypeScript
+- Framework: React
+- UI Library: Tailwind CSS, Shadcn UI
+- Build Tool: Vite
+- Directory Structure:
+  - frontend/src/: Main source code
+  - frontend/src/index.html: Main HTML file
+  - Configuration Files:
+    - vite.config.ts
+    - tsconfig.json
+    - tailwind.config.js
+    - postcss.config.js
+  - Docker Files:
+    - Dockerfile
+    - Dockerfile.dev
+
+Key Features
+- User Authentication
+  - Registration & Login with JWT
+  - OAuth Google Login
+  - Email Verification
+  - Password Reset
+  - Rate Limiting (to prevent brute force attacks)
+  - Role-Based Access Control (RBAC)
+  - Optional Two-Factor Authentication (2FA)
+
+Milestones
+1. Basic Authentication API (Registration, Login, JWT)
+2. Email Verification & Password Reset
+3. OAuth Integration (Google Login)
+4. Rate Limiting & Role-Based Access
+5. Optional 2FA Implementation
+
+Technologies
+- Backend: FastAPI, PostgreSQL, SQLAlchemy, bcrypt, JWT
+- Frontend: React, TypeScript, Tailwind CSS, Shadcn UI
+- Containerization: Docker
+- Security: OAuth2, JWT, bcrypt, rate limiting
+
+Development Guidelines
+
+Backend
+- Use async def for all API endpoints.
+- Follow PEP8 coding standards.
+- Separate concerns: use routers/, schemas/, models/, services/ directories.
+- Use SQLAlchemy 2.0 for ORM features.
+- Implement proper error handling & logging.
+
+Frontend
+- Use TypeScript for type safety.
+- Use functional components and hooks efficiently.
+- Follow mobile-first responsive design.
+- Implement lazy loading & code splitting for performance.
+
+Testing & Deployment
+- Unit tests for both frontend and backend.
+- Docker Compose for container orchestration.
+- CI/CD Integration for automated testing and deployment.
+- CORS Configuration for secure API access.
+
+Notes
+- Ensure that all API endpoints return consistent responses with proper status codes.
+- Maintain clear and updated documentation.
+- Regularly review and optimize performance and security measures.
+
