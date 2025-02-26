@@ -1,11 +1,15 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from typing import List
+import logging
+from sqlalchemy.orm import joinedload
 
 from ..database import get_db
 from ..models.user import User
 from ..schemas.user import UserCreate, UserResponse, UserUpdate
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/users", tags=["users"])
 
@@ -22,6 +26,53 @@ async def get_users(skip: int = 0, limit: int = 100, db: AsyncSession = Depends(
     result = await db.execute(select(User).offset(skip).limit(limit))
     users = result.scalars().all()
     return users
+
+@router.get("/me")
+async def get_current_user(request: Request, db: AsyncSession = Depends(get_db)):
+    """Endpoint pro získání informací o přihlášeném uživateli"""
+    try:
+        user_data = request.state.user
+        logger.info(f"Getting user data for: {user_data}")
+        
+        if not user_data or "sub" not in user_data:
+            logger.error("No user data in request state")
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Invalid authentication credentials"
+            )
+
+        stmt = (
+            select(User)
+            .options(joinedload(User.roles))
+            .filter(User.username == user_data["sub"])
+        )
+        result = await db.execute(stmt)
+        user = result.unique().scalar_one_or_none()
+        
+        if not user:
+            logger.warning(f"User not found: {user_data['sub']}")
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"User {user_data['sub']} not found"
+            )
+            
+        roles = [{"id": role.id, "name": role.name} for role in user.roles]
+            
+        response = {
+            "id": user.id,
+            "username": user.username,
+            "email": user.email,
+            "roles": roles
+        }
+        logger.info(f"Successfully retrieved user data: {response}")
+        return response
+        
+    except Exception as e:
+        logger.error(f"Error in get_current_user: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=str(e)
+        )
 
 @router.get("/{user_id}", response_model=UserResponse)
 async def get_user(user_id: int, db: AsyncSession = Depends(get_db)):

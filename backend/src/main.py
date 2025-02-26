@@ -10,6 +10,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from .config import settings
 from .routers import user_routes, auth_routes
 from .database import AsyncSessionLocal
+from .middleware.auth_middleware import jwt_middleware
 
 # Nastavení loggingu
 logging.basicConfig(
@@ -32,6 +33,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Přidání JWT middleware
+app.middleware("http")(jwt_middleware)
 
 # Přidání routerů
 app.include_router(user_routes.router)
