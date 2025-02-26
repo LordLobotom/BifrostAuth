@@ -10,24 +10,31 @@ Tento dokument obsahuje plán dalšího rozvoje frontend aplikace s rozdělením
 - [x] Nastavení Tailwind CSS
 - [x] Integrace Shadcn UI komponent
 - [x] Vytvoření základní struktury adresářů (components, pages, hooks, utils, types)
-- [ ] Nastavení React Router pro navigaci
+- [x] Nastavení React Router pro navigaci
 
 ### Autentizace a autorizace
-- [ ] Vytvoření přihlašovacího formuláře
-- [ ] Implementace registračního formuláře
-- [ ] Vytvoření kontextu pro autentizaci (AuthContext)
-- [ ] Implementace JWT autentizace s refresh tokenem
-- [ ] Vytvoření chráněných routes
-- [ ] Implementace odhlášení
+- [x] Vytvoření přihlašovacího formuláře
+- [x] Implementace registračního formuláře
+- [x] Vytvoření kontextu pro autentizaci (AuthContext)
+- [x] Implementace JWT autentizace s refresh tokenem
+- [x] Vytvoření chráněných routes
+- [x] Implementace odhlášení
 - [ ] Přidání OAuth přihlášení (Google)
 
 ### Základní komponenty
-- [ ] Vytvoření layoutu aplikace (header, sidebar, footer)
-- [ ] Implementace navigačního menu
-- [ ] Vytvoření komponent pro formuláře (input, select, checkbox, atd.)
-- [ ] Implementace komponent pro zobrazení chyb a notifikací
-- [ ] Vytvoření modálních oken
-- [ ] Implementace tabulek pro zobrazení dat
+- [x] Vytvoření layoutu aplikace (header, sidebar, footer)
+- [x] Implementace navigačního menu
+- [x] Vytvoření komponent pro formuláře (input, select, checkbox, atd.)
+- [x] Implementace komponent pro zobrazení chyb a notifikací
+- [x] Vytvoření modálních oken
+
+### Uživatelské rozhraní
+- [x] Implementace responzivního designu
+- [x] Vytvoření tmavého/světlého režimu
+- [x] Přidání animací a přechodů
+- [ ] Implementace loading stavů
+- [ ] Vytvoření error boundary
+- [ ] Přidání skeleton loaderů
 
 ### Testování a CI/CD
 - [ ] Nastavení testovacího prostředí (Vitest, React Testing Library)
@@ -36,60 +43,50 @@ Tento dokument obsahuje plán dalšího rozvoje frontend aplikace s rozdělením
 - [x] Konfigurace GitHub Actions pro automatické testování
 - [ ] Nastavení Cypress pro E2E testy
 
-## Milestone 2: Správa uživatelů a rozšířené funkce
+## Milestone 2: Funkce a vylepšení
 
 ### Správa uživatelů
-- [ ] Implementace seznamu uživatelů
-- [ ] Vytvoření detailu uživatele
-- [ ] Implementace editace uživatelského profilu
-- [ ] Vytvoření správy rolí a oprávnění
-- [ ] Implementace vyhledávání a filtrování uživatelů
+- [x] Vytvoření profilu uživatele
+- [x] Implementace nastavení účtu
+- [ ] Správa rolí a oprávnění
+- [ ] Historie přihlášení
+- [ ] Správa API klíčů
 
-### Rozšířené funkce autentizace
-- [ ] Implementace formuláře pro reset hesla
-- [ ] Vytvoření stránky pro verifikaci e-mailu
-- [ ] Implementace dvoufaktorové autentizace (2FA)
-- [ ] Přidání dalších OAuth poskytovatelů (Facebook, GitHub)
-- [ ] Vytvoření historie přihlášení
+### Zabezpečení
+- [x] Implementace JWT autentizace
+- [ ] Přidání CSRF ochrany
+- [ ] Rate limiting na frontend straně
+- [ ] Validace vstupů
+- [ ] Sanitizace dat
 
-### UX vylepšení
-- [ ] Implementace dark/light módu
-- [ ] Vytvoření responzivního designu
-- [ ] Implementace animací a přechodů
-- [ ] Přidání drag-and-drop funkcí
-- [ ] Vytvoření interaktivních grafů a vizualizací
+### Optimalizace
+- [ ] Implementace code splitting
+- [ ] Lazy loading komponent
+- [ ] Optimalizace obrázků
+- [ ] Minifikace CSS a JS
+- [ ] Implementace service workeru
 
-## Milestone 3: Optimalizace a vylepšení UX
+## Milestone 3: Testování a kvalita kódu
 
-### Výkon a optimalizace
-- [ ] Implementace lazy loading komponent
-- [ ] Optimalizace velikosti bundle
-- [ ] Přidání code splitting
-- [ ] Implementace memoizace pro výkonnostně náročné komponenty
-- [ ] Optimalizace renderování seznamů
-- [ ] Měření a optimalizace Web Vitals (LCP, CLS, FID)
+### Testování
+- [x] Nastavení testovacího prostředí
+- [x] Implementace unit testů
+- [ ] Přidání integračních testů
+- [ ] E2E testy s Cypress
+- [ ] Testování přístupnosti
 
-### Pokročilé UI funkce
-- [ ] Implementace vícejazyčnosti (i18n)
-- [ ] Vytvoření pokročilých filtrů a vyhledávání
-- [ ] Implementace drag-and-drop rozhraní
-- [ ] Přidání klávesových zkratek
-- [ ] Vytvoření průvodců (wizards) pro složité procesy
+### Kvalita kódu
+- [x] Nastavení ESLint pravidel
+- [x] Konfigurace Prettier
+- [ ] Přidání TypeScript strict mode
+- [ ] Implementace pre-commit hooks
+- [ ] Kontrola typů při buildu
 
-## Milestone 4: Testování a dokumentace
-
-### Rozšířené testování
-- [ ] Implementace unit testů pro všechny klíčové komponenty
-  - [ ] Testy pro autentizační formuláře
-  - [ ] Testy pro tabulku uživatelů
-  - [ ] Testy pro správu rolí
-- [ ] Vytvoření integračních testů
-  - [ ] Testy pro workflow přihlášení
-  - [ ] Testy pro správu uživatelů
-- [ ] Implementace end-to-end testů (Cypress nebo Playwright)
-  - [ ] Test kompletního přihlašovacího procesu
-  - [ ] Test správy uživatelů
-- [ ] Testování přístupnosti (a11y)
+### Výkon
+- [ ] Optimalizace bundle size
+- [ ] Implementace code splitting
+- [ ] Optimalizace renderování
+- [ ] Testování výkonu
 - [ ] Testování kompatibility prohlížečů
 
 ### Dokumentace
@@ -101,7 +98,7 @@ Tento dokument obsahuje plán dalšího rozvoje frontend aplikace s rozdělením
 ## Milestone 5: Nasazení a monitoring
 
 ### Nasazení
-- [ ] Konfigurace Docker pro produkční build
+- [x] Konfigurace Docker pro produkční build
 - [ ] Optimalizace bundlu pro produkci
 - [ ] Implementace CI/CD pipeline pro automatické nasazení
 

@@ -2,108 +2,100 @@
 
 Tento dokument obsahuje plán dalšího rozvoje backend aplikace s rozdělením do jednotlivých milníků.
 
-## Milestone 1: Základní funkce a vylepšení
+## Milestone 1: Základní infrastruktura
+
+### Základní nastavení
+- [x] Inicializace FastAPI projektu
+- [x] Nastavení projektové struktury
+- [x] Konfigurace pomocí environment proměnných
+- [x] Základní CORS nastavení
+- [ ] Implementace health endpointu
+  - [ ] Kontrola připojení k databázi
+  - [ ] Kontrola dostupnosti služeb
+  - [ ] Základní metriky (uptime, verze, atd.)
+
+### Databáze a modely
+- [x] Nastavení SQLAlchemy
+- [x] Vytvoření základních modelů (User, Role, Permission)
+- [x] Konfigurace Alembic pro migrace
+- [ ] Vytvoření seederu pro testovací data
+- [ ] Implementace databázových indexů
 
 ### Autentizace a autorizace
-- [x] Implementace základní struktury projektu
-- [x] Vytvoření základních modelů (User)
-- [x] Konfigurace SQLite databáze
-- [x] Nastavení Alembic pro migrace
 - [ ] Implementace JWT autentizace
-- [ ] Vytvoření endpointů pro registraci a přihlášení
-- [ ] Správa obnovovacích tokenů (refresh tokens)
-- [ ] Implementace role-based autorizace
-- [ ] Hashování hesel pomocí bcrypt
-- [ ] Implementace OAuth2 pro přihlášení přes Google
+- [ ] Správa refresh tokenů
+- [ ] Role-based přístupová práva (RBAC)
+- [ ] Implementace OAuth2 (Google)
+- [ ] Rate limiting a ochrana proti útokům
 
-### API a databáze
-- [x] Vytvoření základních CRUD endpointů pro uživatele
-- [ ] Implementace validace vstupních dat pomocí Pydantic
-- [ ] Vytvoření modelů pro role a oprávnění
-- [ ] Implementace relací mezi modely
-- [ ] Optimalizace databázových dotazů
-- [ ] Implementace stránkování a filtrování pro seznamy
+### API Endpointy
+- [x] Základní CRUD pro uživatele
+- [ ] Endpointy pro správu rolí
+- [ ] Endpointy pro správu oprávnění
+- [ ] Dokumentace API (OpenAPI/Swagger)
+- [ ] Verzování API
 
-### Bezpečnost
-- [ ] Implementace rate limitingu pro prevenci útoků
-- [ ] Konfigurace CORS pro bezpečný přístup
-- [ ] Implementace ochrany proti CSRF útokům
-- [ ] Logování bezpečnostních událostí
-- [ ] Implementace dvoufaktorové autentizace (2FA)
-
-### Testování a CI/CD
-- [x] Nastavení testovacího prostředí (pytest, pytest-asyncio)
-- [x] Vytvoření základních unit testů
-- [x] Konfigurace GitHub Actions pro automatické testování
-- [ ] Implementace integračních testů
-  - [ ] Testy pro autentizační workflow
-  - [ ] Testy pro správu uživatelů a rolí
-- [ ] Vytvoření end-to-end testů
-  - [ ] Test kompletního přihlašovacího procesu
-  - [ ] Test správy uživatelů
-- [ ] Měření pokrytí kódu testy
-- [ ] Automatizace deploymentu
-
-### Dokumentace a monitoring
-- [ ] Vytvoření API dokumentace pomocí Swagger/OpenAPI
-- [ ] Implementace logování pomocí strukturovaného formátu
-- [ ] Nastavení monitoringu výkonu
-- [ ] Vytvoření dokumentace pro vývojáře
-- [ ] Implementace health check endpointů
-
-## Milestone 2: Pokročilé funkce
-
-### Rozšířená autentizace
-- [ ] Implementace zapomenutého hesla a resetování
-- [ ] Verifikace e-mailu při registraci
-- [ ] Implementace dalších OAuth poskytovatelů (Facebook, GitHub)
-- [ ] Správa sessions a detekce podezřelých přihlášení
-
-### Výkon a škálování
-- [ ] Implementace cachování pomocí Redis
-- [ ] Optimalizace databázových dotazů
-- [ ] Implementace asynchronních úloh pomocí Celery
-- [ ] Konfigurace load balancingu
-
-### Další vylepšení
-- [ ] Implementace API verzování
-- [ ] Přidání integračních testů
-- [ ] Nastavení CI/CD pipeline
-- [ ] Konfigurace produkčního prostředí
-- [ ] Nastavení monitoringu a alertingu
-- [ ] Vytvoření skriptů pro zálohování databáze
-
-## Milestone 3: Škálování a monitoring
-
-### Monitoring a logování
-- [ ] Implementace strukturovaného logování
-- [ ] Integrace s monitorovacími nástroji (např. Prometheus)
-- [ ] Vytvoření dashboardů pro sledování výkonu
-- [ ] Implementace sledování chyb (error tracking)
-- [ ] Přidání zdravotních kontrol (health checks)
-
-### Škálování a výkon
-- [ ] Implementace cachování (Redis)
-- [ ] Optimalizace výkonu databáze
-- [ ] Příprava na horizontální škálování
-- [ ] Implementace asynchronního zpracování úloh (např. Celery)
-- [ ] Optimalizace velikosti Docker obrazů
-
-## Milestone 4: Bezpečnost a dokumentace
+## Milestone 2: Rozšířené funkce
 
 ### Bezpečnost
 - [ ] Implementace rate limitingu
-- [ ] Ochrana proti běžným útokům (CSRF, XSS, SQL injection)
-- [ ] Pravidelné bezpečnostní audity
-- [ ] Implementace CORS s přísnějšími pravidly
-- [ ] Šifrování citlivých dat
+- [ ] CORS s přísnějšími pravidly
+- [ ] Validace vstupních dat
+- [ ] Logování bezpečnostních událostí
+- [ ] Ochrana proti běžným útokům
 
-### Dokumentace a testování
-- [ ] Rozšíření API dokumentace
-- [ ] Vytvoření uživatelské dokumentace
-- [ ] Implementace unit testů
-- [ ] Přidání integračních testů
-- [ ] Nastavení CI/CD pipeline
+### Monitoring a logování
+- [ ] Implementace strukturovaného logování
+- [ ] Monitoring výkonu
+- [ ] Sledování chyb a výjimek
+- [ ] Metriky API endpointů
+- [ ] Alerting systém
+
+### Optimalizace výkonu
+- [ ] Cachování častých dotazů
+- [ ] Optimalizace databázových dotazů
+- [ ] Implementace connection poolingu
+- [ ] Asynchronní zpracování dlouhých operací
+- [ ] Optimalizace velikosti odpovědí
+
+## Milestone 3: Testování a kvalita
+
+### Testování
+- [x] Nastavení pytest
+- [ ] Unit testy pro modely
+- [ ] Integrační testy pro API
+- [ ] Performance testy
+- [ ] Security testy
+
+### CI/CD
+- [x] Nastavení GitHub Actions
+- [ ] Automatické testy při PR
+- [ ] Automatický deployment
+- [ ] Kontrola kvality kódu
+- [ ] Generování dokumentace
+
+## Milestone 4: Produkční nasazení
+
+### Deployment
+- [x] Dockerfile pro development
+- [ ] Dockerfile pro produkci
+- [ ] Docker Compose setup
+- [ ] Skripty pro zálohování
+- [ ] Monitoring v produkci
+
+### Dokumentace
+- [ ] API dokumentace
+- [ ] Dokumentace deploymentu
+- [ ] Uživatelská dokumentace
+- [ ] Dokumentace pro vývojáře
+- [ ] Postupy pro řešení problémů
+
+## Technické dluhy a vylepšení
+- [ ] Migrace na novější verze závislostí
+- [ ] Refaktoring kódu
+- [ ] Optimalizace výkonu
+- [ ] Vylepšení error handlingu
+- [ ] Rozšíření testovacího pokrytí
 
 ## Další nápady pro budoucí rozvoj
 

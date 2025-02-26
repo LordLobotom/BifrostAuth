@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const Sidebar: React.FC = () => {
   const navItems = [
-    { path: '/', label: 'Dashboard', icon: '📊' },
+    { path: '/dashboard', label: 'Dashboard', icon: '📊' },
     { path: '/users', label: 'Uživatelé', icon: '👥' },
     { path: '/profile', label: 'Profil', icon: '👤' },
     { path: '/settings', label: 'Nastavení', icon: '⚙️' },

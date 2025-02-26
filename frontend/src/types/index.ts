@@ -11,6 +11,7 @@ export interface User {
   createdAt: string;
   updatedAt?: string;
   roles?: Role[];
+  token?: string;
 }
 
 export interface Role {

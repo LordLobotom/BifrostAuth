@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -9,12 +9,27 @@ import { OAuthButtons } from '@/components/auth/OAuthButtons';
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { login, error, loading } = useAuth();
+  const { login, error, loading, isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      const from = location.state?.from?.pathname || '/dashboard';
+      navigate(from, { replace: true });
+    }
+  }, [isAuthenticated, navigate, location]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await login({ username, password });
+  };
+
+  const handleTestLogin = async () => {
+    await login({
+      username: 'testuser',
+      password: 'testpassword'
+    });
   };
 
   return (
@@ -61,6 +76,17 @@ const LoginPage: React.FC = () => {
               <div className="text-destructive text-sm text-center">{error}</div>
             )}
 
+            <div className="flex items-center justify-end">
+              <Button
+                variant="link"
+                type="button"
+                onClick={() => navigate('/reset-password')}
+                className="text-sm"
+              >
+                Zapomenuté heslo?
+              </Button>
+            </div>
+
             <Button
               type="submit"
               disabled={loading}
@@ -71,6 +97,17 @@ const LoginPage: React.FC = () => {
             
             <OAuthButtons action="login" />
           </form>
+          
+          <div className="mt-4">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={handleTestLogin}
+              className="w-full"
+            >
+              Testovací přihlášení
+            </Button>
+          </div>
         </CardContent>
         <CardFooter className="flex justify-center">
           <Button

@@ -7,7 +7,7 @@ const initialState: AuthState = {
   isAuthenticated: false,
   user: null,
   token: null,
-  loading: true,
+  loading: false,
   error: null,
 };
 
@@ -99,75 +99,52 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  // Kontrola, zda je uživatel přihlášen při načtení aplikace
   useEffect(() => {
-    const checkAuth = async () => {
-      const token = localStorage.getItem('token');
-      if (token) {
-        try {
-          const response = await apiRequest<User>({
-            url: '/auth/me',
-            method: 'GET',
-          });
-
-          if (response.data) {
-            dispatch({
-              type: 'LOGIN_SUCCESS',
-              payload: { user: response.data, token },
-            });
-          } else {
-            localStorage.removeItem('token');
-            localStorage.removeItem('refreshToken');
-            dispatch({ type: 'LOGOUT' });
-          }
-        } catch (error) {
-          localStorage.removeItem('token');
-          localStorage.removeItem('refreshToken');
-          dispatch({ type: 'LOGOUT' });
+    const token = localStorage.getItem('token');
+    const savedUser = localStorage.getItem('user');
+    
+    if (token && savedUser) {
+      dispatch({
+        type: 'LOGIN_SUCCESS',
+        payload: {
+          user: JSON.parse(savedUser),
+          token
         }
-      } else {
-        dispatch({ type: 'LOGOUT' });
-      }
-    };
-
-    checkAuth();
+      });
+    }
   }, []);
 
-  // Přihlášení
   const login = async (credentials: LoginCredentials) => {
     dispatch({ type: 'LOGIN_REQUEST' });
     
-    // Simulace úspěšného přihlášení pro testovací účely
-    if (credentials.username === 'test' && credentials.password === 'test') {
-      const mockUser: User = {
+    try {
+      // Pro testování použijeme mock data
+      const mockUser = {
         id: 1,
-        username: 'test',
-        email: 'test@example.com',
-        fullName: 'Test User',
+        username: credentials.username,
+        email: `${credentials.username}@example.com`,
         isActive: true,
         isVerified: true,
         createdAt: new Date().toISOString(),
-        roles: [{ id: 1, name: 'admin', description: 'Administrator' }]
+        roles: [{ id: 1, name: 'user', description: 'Běžný uživatel' }]
       };
       
       const mockToken = 'mock-jwt-token';
       
-      // Uložení tokenu do localStorage
+      // Uložíme data do localStorage
       localStorage.setItem('token', mockToken);
+      localStorage.setItem('user', JSON.stringify(mockUser));
       
       dispatch({
         type: 'LOGIN_SUCCESS',
         payload: { user: mockUser, token: mockToken }
       });
-      
-      return;
+    } catch (error: any) {
+      dispatch({
+        type: 'LOGIN_FAILURE',
+        payload: error.message || 'Přihlášení se nezdařilo'
+      });
     }
-    
-    // Pokud přihlašovací údaje nejsou správné, vrátíme chybu
-    dispatch({
-      type: 'LOGIN_FAILURE',
-      payload: 'Neplatné přihlašovací údaje'
-    });
   };
 
   // Registrace
@@ -271,10 +248,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 };
 
 // Hook pro použití kontextu
-export const useAuth = (): AuthContextType => {
+export const useAuth = () => {
   const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
+  if (!context) {
+    throw new Error('useAuth musí být použit uvnitř AuthProvider');
   }
   return context;
 }; 
