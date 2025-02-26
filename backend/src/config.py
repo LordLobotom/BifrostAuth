@@ -13,11 +13,15 @@ class Settings:
         self.app_description = os.getenv("APP_DESCRIPTION", "Autentizační a uživatelský management systém")
         self.environment = os.getenv("ENVIRONMENT", "development")
 
-        # Databáze
-        self.database_url = os.getenv("DATABASE_URL", "sqlite+aiosqlite:///./test.db")
+        # Databáze - pouze PostgreSQL
+        self.database_url = os.getenv("DATABASE_URL")
+        if not self.database_url:
+            raise ValueError("DATABASE_URL musí být nastaven")
 
         # JWT
-        self.secret_key = os.getenv("SECRET_KEY", "your-secret-key-here")
+        self.secret_key = os.getenv("SECRET_KEY")
+        if not self.secret_key:
+            raise ValueError("SECRET_KEY musí být nastaven")
         self.algorithm = os.getenv("ALGORITHM", "HS256")
         self.access_token_expire_minutes = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "30"))
 

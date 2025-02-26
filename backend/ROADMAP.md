@@ -2,79 +2,85 @@
 
 Tento dokument obsahuje plán dalšího rozvoje backend aplikace s rozdělením do jednotlivých milníků.
 
-## Milestone 1: Základní infrastruktura
+## Milestone 1: Základní infrastruktura ✅
 
-### Základní nastavení
+### Základní nastavení ✅
 - [x] Inicializace FastAPI projektu
 - [x] Nastavení projektové struktury
 - [x] Konfigurace pomocí environment proměnných
 - [x] Základní CORS nastavení
-- [ ] Implementace health endpointu
-  - [ ] Kontrola připojení k databázi
-  - [ ] Kontrola dostupnosti služeb
-  - [ ] Základní metriky (uptime, verze, atd.)
+- [x] Implementace health endpointu
+  - [x] Kontrola připojení k databázi
+  - [x] Kontrola dostupnosti služeb
+  - [x] Základní metriky (uptime, verze, atd.)
 
-### Databáze a modely
+### Databáze a modely ✅
 - [x] Nastavení SQLAlchemy
 - [x] Vytvoření základních modelů (User, Role, Permission)
 - [x] Konfigurace Alembic pro migrace
 - [ ] Vytvoření seederu pro testovací data
-- [ ] Implementace databázových indexů
+- [x] Implementace automatického seedování dat
+- [x] Skript pro reset/setup databáze
 
-### Autentizace a autorizace
-- [ ] Implementace JWT autentizace
-- [ ] Správa refresh tokenů
-- [ ] Role-based přístupová práva (RBAC)
-- [ ] Implementace OAuth2 (Google)
-- [ ] Rate limiting a ochrana proti útokům
+### Bezpečnost a Monitoring ✅
+- [x] Základní logování
+- [x] Error handling
+- [x] Validace konfigurace
+- [x] Bezpečná správa secret key
 
-### API Endpointy
-- [x] Základní CRUD pro uživatele
+## Milestone 2: Autentizace (Další priorita)
+
+### JWT Implementace
+- [x] Vytvoření JWT utility
+- [x] Endpointy pro login/logout
+- [ ] Refresh token mechanismus
+- [x] Implementace JWT middleware pro ochranu endpointů
+
+### Uživatelské zabezpečení
+- [x] Hashování hesel (passlib/bcrypt)
+- [ ] Validace emailů
+- [ ] Reset hesla flow
+- [ ] Email verifikace
+
+## Milestone 3: Rozšířené funkce
+
+### Role a Oprávnění
+- [x] Model pro Role
+- [x] Model pro Oprávnění
+- [x] Základní seeder pro role a oprávnění
+- [ ] RBAC middleware
 - [ ] Endpointy pro správu rolí
-- [ ] Endpointy pro správu oprávnění
-- [ ] Dokumentace API (OpenAPI/Swagger)
-- [ ] Verzování API
 
-## Milestone 2: Rozšířené funkce
+### API Dokumentace
+- [ ] Swagger/OpenAPI dokumentace
+- [ ] Příklady použití v dokumentaci
+- [ ] Postman kolekce
 
-### Bezpečnost
-- [ ] Implementace rate limitingu
-- [ ] CORS s přísnějšími pravidly
-- [ ] Validace vstupních dat
-- [ ] Logování bezpečnostních událostí
-- [ ] Ochrana proti běžným útokům
+## Milestone 4: Testování
 
-### Monitoring a logování
-- [ ] Implementace strukturovaného logování
-- [ ] Monitoring výkonu
-- [ ] Sledování chyb a výjimek
-- [ ] Metriky API endpointů
-- [ ] Alerting systém
+### Unit Testy
+- [ ] Testy pro modely
+- [ ] Testy pro autentizaci
+- [ ] Testy pro RBAC
+- [ ] Testy pro API endpointy
 
-### Optimalizace výkonu
-- [ ] Cachování častých dotazů
-- [ ] Optimalizace databázových dotazů
-- [ ] Implementace connection poolingu
-- [ ] Asynchronní zpracování dlouhých operací
-- [ ] Optimalizace velikosti odpovědí
-
-## Milestone 3: Testování a kvalita
-
-### Testování
-- [x] Nastavení pytest
-- [ ] Unit testy pro modely
-- [ ] Integrační testy pro API
+### Integrační Testy
+- [ ] Setup testovací databáze
+- [ ] API testy
 - [ ] Performance testy
-- [ ] Security testy
 
-### CI/CD
-- [x] Nastavení GitHub Actions
-- [ ] Automatické testy při PR
-- [ ] Automatický deployment
-- [ ] Kontrola kvality kódu
-- [ ] Generování dokumentace
+### Testování API
+- [ ] Postman/Thunder Client kolekce
+- [ ] Příklady použití v dokumentaci
+- [ ] Automatizované testy endpointů
 
-## Milestone 4: Produkční nasazení
+### Bezpečnostní vylepšení
+- [ ] Rate limiting pro auth endpointy
+- [ ] Ochrana proti brute force útokům
+- [ ] Session management
+- [ ] Audit log pro bezpečnostní události
+
+## Milestone 5: Produkční nasazení
 
 ### Deployment
 - [x] Dockerfile pro development
